@@ -33,6 +33,41 @@ img {
   display: block;
 }
 
+@media (max-width: 600px) {
+  .app-header h1 {
+    font-size: 22px;
+  }
+  .app-header p {
+    font-size: 14px;
+  }
+
+  .panel {
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .bike-stage {
+    padding: 12px 8px 24px;
+  }
+
+  .age-marker-label,
+  .age-marker-label.avg {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .prime-band {
+    bottom: 70px;
+    height: 22px;
+    font-size: 11px;
+  }
+
+  .journey-bar {
+    height: 12px;
+  }
+}
+
+
 /* Header */
 .app-header{
   text-align:center;
