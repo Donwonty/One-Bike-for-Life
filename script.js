@@ -123,7 +123,7 @@ function updateVisualization(){
   const ageX = lifeStartPx + lifeSpanPx * fracAge;
   const avgX = lifeEndPx;
 
-    ageLine.style.left = ageX + "px";
+   ageLine.style.left = ageX + "px";
   ageMarkerLabel.style.left = ageX + "px";
 
   avgLine.style.left = avgX + "px";
@@ -229,7 +229,7 @@ lifeInput.addEventListener("input", () => {
 primeBand.addEventListener("mouseenter", () => {
   const age = parseFloat(ageInput.value) || 0;
   const yearsLeft = clamp(BEST_END_AGE - age, 0, BEST_END_AGE - BEST_START_AGE);
-  primeTooltip.textContent = `${BEST_START_AGE}–${BEST_END_AGE} yrs  •  ${yearsLeft} yrs left in best riding`;
+  primeTooltip.textContent = `Prime Biking (18–65) • ${yearsLeft} yrs remaining`;
   primeTooltip.style.opacity = "1";
 });
 
@@ -249,3 +249,5 @@ window.addEventListener("load", () => {
   lifeInput.disabled = true;
   updateVisualization();
 });
+
+
