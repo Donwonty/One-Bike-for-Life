@@ -253,7 +253,7 @@ input[type=range]::-moz-range-thumb{
 .age-marker-label{
   position:absolute;
   top:6px;
-  font-size:12px;
+  font-size:14px;
   background:#111827;
   color:#f9fafb;
   padding:4px 8px;
