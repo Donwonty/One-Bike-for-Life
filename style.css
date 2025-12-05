@@ -22,9 +22,9 @@ body{
 }
 
 .shell{
-  max-width:1250px;
+  max-width:1200px;
   margin:55px auto 40px;
-  padding:0 16px;
+  padding:0 4px;
 }
 
 img {
@@ -32,7 +32,16 @@ img {
   height: auto;
   display: block;
 }
+@media (max-width: 870px) {
+  .layout {
+    grid-template-columns: 1fr;   /* stack controls + bike vertically */
+  }
+  .panel-visual {
+    order: -1;                    /* put bike on top on phones */
+  }
+}
 
+/*Phone Screens*/
 @media (max-width: 600px) {
   .app-header h1 {
     font-size: 22px;
@@ -65,6 +74,15 @@ img {
   .journey-bar {
     height: 12px;
   }
+}
+
+input[type="range"] {
+  height: 32px;          /* larger thumb track */
+}
+
+.toggle-slider {
+  width: 40px;
+  height: 22px;
 }
 
 
@@ -290,14 +308,14 @@ input[type=range]::-moz-range-thumb{
   box-shadow:0 0 10px rgba(148,163,184,.6);
   z-index:2;
 }
-/* Line labels */
+/* Labels above bike */
 .age-marker-label{
   position:absolute;
   top:6px;
   font-size:14px;
   background:#111827;
   color:#f9fafb;
-  padding:4px 8px;
+  padding:4px 6px;
   border-radius:999px;
   transform:translateX(-50%);
   white-space:nowrap;
@@ -328,6 +346,33 @@ input[type=range]::-moz-range-thumb{
   pointer-events:auto;
   z-index:2;
 }
+/* Info Pointer next to Best Riding Years */
+.prime-info {
+  position: absolute;
+  bottom: 80px;       /* adjust if needed */
+  left: 50%;
+  transform: translateX(120%);  /* moves dot slightly to the right of the band */
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0d1117;            /* dark navy bubble */
+  color: #fff;
+  font-size: 12px;
+  font-weight:600;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.9;
+}
+
+/* Hover brightening */
+.prime-info:hover {
+  background:#1a73e8;   /* blue highlight */
+  opacity: 1;
+}
+
 
 /* tooltip for best riding years */
 .prime-tooltip{
