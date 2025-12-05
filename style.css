@@ -386,7 +386,7 @@ input[type=range]::-moz-range-thumb{
   top:472px;
   left:65%;
   transform:translateX(-50%);
-  opacity:0;
+  opacity:1;
   pointer-events:none;
   transition:opacity .12s ease;
   z-index:5;
