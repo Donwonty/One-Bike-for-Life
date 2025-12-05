@@ -123,22 +123,40 @@ function updateVisualization(){
   const ageX = lifeStartPx + lifeSpanPx * fracAge;
   const avgX = lifeEndPx;
 
-  ageLine.style.left = ageX + "px";
+    ageLine.style.left = ageX + "px";
   ageMarkerLabel.style.left = ageX + "px";
 
   avgLine.style.left = avgX + "px";
   avgMarkerLabel.style.left = avgX + "px";
 
-  // label overlap handling
-  ageMarkerLabel.style.display = (age >= currentLife - 0.01) ? "none" : "block";
+  // --- Label overlap handling ---------------------------------
+  // If we're at (or essentially at) life expectancy,
+  // hide "You are here" and keep "End of your ride" on the top row.
+  if (age >= currentLife - 0.01) {
+    ageMarkerLabel.style.display = "none";
+    avgMarkerLabel.style.top = "6px";
+  } else {
+    // Show "You are here"
+    ageMarkerLabel.style.display = "block";
 
-  if(Math.abs(ageX - avgX) < 46 && age < currentLife - 0.01){
-    ageMarkerLabel.style.top = "6px";
-    avgMarkerLabel.style.top = "30px";
-  }else{
+    // Default: both labels on the top row
     ageMarkerLabel.style.top = "6px";
     avgMarkerLabel.style.top = "6px";
+
+    // Check if the pills actually overlap in the UI
+    const ageRect = ageMarkerLabel.getBoundingClientRect();
+    const avgRect = avgMarkerLabel.getBoundingClientRect();
+
+    const overlapping = ageRect.right >= avgRect.left;
+
+    if (overlapping) {
+      // Keep "You are here" on top, move "End of your ride" down
+      ageMarkerLabel.style.top = "6px";
+      avgMarkerLabel.style.top = "30px";
+    }
   }
+  // -------------------------------------------------------------
+
 
   // --- Best Riding Years band positioning / tooltip maths ---
 
